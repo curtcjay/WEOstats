@@ -19,17 +19,29 @@ def indicators_preprocessing_by_year(indc='indc'):
     """
     This function is to prepocess indicator data by year
     Return:
-    indicators_by_year: a dataframe containing every year's indicators for each country from 2000 to 2015
+    indicators_by_year: a dataframe containing every year's indicators for each country from 1980 to 2015
     """
     df = indicators_preprocessing()
     df.columns = df.columns.get_level_values(1)
     indicators_by_year = df[indc]
     indicators_by_year.columns= range(1980,1984) #rename columns names with years
-    #indicators_by_year['Country'] = df.index
     return indicators_by_year
 
 	
-	
-	
+def indicators_preprocessing_for_table(indc='indc'):
+	"""
+    This function is to prepocess indicator data by year
+    Return:
+    indicators_for_table: a dataframe containing every year's indicators for each country from 1980 to 2015 for the table tab
+    """
+	df = indicators_preprocessing()
+	df.columns = df.columns.get_level_values(1)
+	indicators_for_table = df[indc]
+	indicators_for_table.columns= range(1980,1984)
+	indicators_for_table['Country'] = df.index
+	cols = indicators_for_table.columns.tolist()
+	cols = cols[-1:] + cols[:-1]
+	indicators_for_table = indicators_for_table[cols]
+	return indicators_for_table
 	
 	

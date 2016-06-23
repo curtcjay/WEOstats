@@ -49,7 +49,7 @@ def std(df,year1,year2,indc,country):
     '''
     This function will return the growth rate for a given indicator given the beginnging year and end year	
     Return:
-    growth_rate: a dataframe containing the Growth rate of the specified indicator over the specified years
+    std: a dataframe containing the standard deviation of the specified indicator over the specified years
     '''
     df = df.ix[:,year1:year2]
     std = df.std(axis=1) #list containing growth rates for every country in specified years
@@ -59,16 +59,17 @@ def std(df,year1,year2,indc,country):
     return std
 		
 def time_series_plot(df, year1,year2,country,indc):
-    '''
-    This function will return the times series figure for the selected indicator for given years and country	
-    Return:
-    html: the html for the time series figure
-    time_series: the time series for selected years in a dataframe
-    '''
-    df = df.ix[:,year1:year2]
-    data = df.loc[country]
-    ax = data.plot(figsize=(10,6), legend=True)
-    return ax
+	'''
+	This function will return the times series figure for the selected indicator for given years and country	
+	Return:
+	ax: the time series figure
+	'''
+	df = df.ix[:,year1:year2]
+	data = df.loc[country]
+	data = pd.DataFrame(data)
+	
+	ax = data.plot(figsize=(10,6), legend=True)
+	return ax
 		
 
  

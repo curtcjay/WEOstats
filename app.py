@@ -11,7 +11,49 @@ class EconoApp(server.App):
 
     inputs = [{     "input_type":'dropdown',
                     "label": 'Country', 
-                    "options" : [ {"label": "United States", "value":'United States'},
+                    "options" : [ {"label": "Afghanistan", "value":'United States'},
+                                  {"label": "Albania", "value":'China'},
+                                  {"label": "Algeria", "value":'Japan'}
+                                  {"label": "Angola", "value":'United States'},
+                                  {"label": "Antigua and Barbuda", "value":'China'},
+                                  {"label": "Argentina", "value":'Japan'}
+                                  {"label": "Armenia", "value":'United States'},
+                                  {"label": "Australia", "value":'China'},
+                                  {"label": "Azerbiajian", "value":'Japan'}
+                                  {"label": "Bahrain", "value":'United States'},
+                                  {"label": "Bangladesh", "value":'China'},
+                                  {"label": "Barbados", "value":'Japan'}
+                                  {"label": "Belarus", "value":'United States'},
+                                  {"label": "Benin", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
+                                  {"label": "China", "value":'China'},
+                                  {"label": "Japan", "value":'Japan'}
+                                  {"label": "United States", "value":'United States'},
                                   {"label": "China", "value":'China'},
                                   {"label": "Japan", "value":'Japan'}],
                     "variable_name": 'country', 
