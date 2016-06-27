@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib
-matplotlib.style.use('ggplot')
 
 """
 This is a class for WEO indicators analysis by country, it has following functions:
@@ -17,6 +16,7 @@ indicator: indicator from the available list of indicators in the WEO, str, defa
 df: a preprocessed dataframe with indicators data by year.
 
 """
+
 
 def growth_rate(df,year1,year2,indc,country):
     '''
@@ -67,9 +67,7 @@ def time_series_plot(df, year1,year2,country,indc):
 	df = df.ix[:,year1:year2]
 	data = df.loc[country]
 	data = pd.DataFrame(data)
-	
-	ax = data.plot(figsize=(10,6), legend=True)
-	return ax
+	return data[country].plot(figsize=(10,6), legend=True)
 		
 
  

@@ -208,7 +208,14 @@ class EconoApp(server.App):
                     "options" : [ {"label": "1980", "value":1980},
                                   {"label": "1981", "value":1981},
                                   {"label": "1982", "value":1982},
-                                  {"label": "1983", "value":1983}],
+                                  {"label": "1983", "value":1983},
+                                  {"label": "1984", "value":1984},
+                                  {"label": "1985", "value":1985},
+                                  {"label": "1986", "value":1986},
+                                  {"label": "1987", "value":1987},
+                                  {"label": "1988", "value":1988},
+                                  {"label": "1989", "value":1989},
+                                  {"label": "1990", "value":1990}],
                     "variable_name": 'year1', 
                     "action_id": "button" },
               {     "input_type":'dropdown',
@@ -216,7 +223,14 @@ class EconoApp(server.App):
                     "options" : [ {"label": "1980", "value":1980},
                                   {"label": "1981", "value":1981},
                                   {"label": "1982", "value":1982},
-                                  {"label": "1983", "value":1983}],
+                                  {"label": "1983", "value":1983},
+                                  {"label": "1984", "value":1984},
+                                  {"label": "1985", "value":1985},
+                                  {"label": "1986", "value":1986},
+                                  {"label": "1987", "value":1987},
+                                  {"label": "1988", "value":1988},
+                                  {"label": "1989", "value":1989},
+                                  {"label": "1990", "value":1990}],
                     "variable_name": 'year2', 
                     "action_id": "button" },
               {     "input_type":'dropdown',
@@ -270,14 +284,51 @@ class EconoApp(server.App):
         return df
 
     def getPlot(self, params):
-        country = params['country']
-        year1   = params['year1']
-        year2   = params['year2']
-        indc    = params['indicator']
+		country = params['country']
+		year1   = params['year1']
+		year2   = params['year2']
+		indc    = params['indicator']
         
-        df  = ip.indicators_preprocessing_by_year(indc)
-        fig = isa.time_series_plot(df, year1, year2, country, indc)
-        return fig
+		indicator_dict = {'BCA': "Current Account Balance",
+		'GGR': "General Government Revenue",
+		'GGSB': "General Government Structural Balance",
+		'GGX': "General Government Total Expenditure",
+		'GGXWDG': "General Government Gross Debt",
+		'GGXWDN': "General Government Net Debt",
+		'LE': "Employment",
+		'LP': "Population",
+		'LUR': "Unemployment Rate",
+		'NGAP_NPGDP': "Output Gap as Percentage of GDP",
+		'NGDP_R': "GDP constant",
+		'NGDPRPC': "GDP as percentage of GDP constant",
+		'NGSD_NGDP': "Gross National Savings",
+		'NID_NGDP': "Total Investment",
+		'PCPIE': "Inflation end of period Consumer Prices",
+		'TX_RPCH': "Volume of Exports of Goods and Services"}
+		
+		scale_dict = {'BCA': "U.S. dollars - Billions",
+		'GGR': "National currency - Billions",
+		'GGSB': "National currency - Billions",
+		'GGX': "National currency - Billions",
+		'GGXWDG': "National currency - Billions",
+		'GGXWDN': "National currency - Billions",
+		'LE': "Persons - Millions",
+		'LP': "Persons - Millions",
+		'LUR': "Percent of total labor force",
+		'NGAP_NPGDP': "Percent of potential GDP",
+		'NGDP_R': "National currency - Billions",
+		'NGDPRPC': "National currency - Units",
+		'NGSD_NGDP': "Percent of GDP",
+		'NID_NGDP': "Percent of GDP",
+		'PCPIE': "Index",
+		'TX_RPCH': "Percent change"}
+		
+		df  = ip.indicators_preprocessing_by_year(indc)
+		fig = isa.time_series_plot(df, year1, year2, country, indc)
+		fig.set_title(indicator_dict[params['indicator']])
+		fig.set_ylabel(scale_dict[params['indicator']])
+		fig.set_xlabel('Years')
+		return fig
 
 app = EconoApp()
-app.launch(port=9090)
+app.launch(port=9990)
