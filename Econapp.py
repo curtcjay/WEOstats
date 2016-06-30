@@ -3,11 +3,11 @@ import pandas as pd
 import indicators_preprocessing as ip
 import indicators_stats_analysis as isa
 import matplotlib
-matplotlib.style.use('ggplot')
+matplotlib.style.use('fivethirtyeight')
 
 
 class EconoApp(server.App):
-    title = "EconoApp"
+    title = "MacroSTAT"
 
     inputs = [{     "input_type":'dropdown',
                     "label": 'Country', 
@@ -215,7 +215,32 @@ class EconoApp(server.App):
                                   {"label": "1987", "value":1987},
                                   {"label": "1988", "value":1988},
                                   {"label": "1989", "value":1989},
-                                  {"label": "1990", "value":1990}],
+                                  {"label": "1990", "value":1990},
+                                  {"label": "1991", "value":1991},
+                                  {"label": "1992", "value":1992},
+                                  {"label": "1993", "value":1993},
+                                  {"label": "1994", "value":1994},
+                                  {"label": "1995", "value":1995},
+                                  {"label": "1996", "value":1996},
+                                  {"label": "1997", "value":1997},
+                                  {"label": "1998", "value":1998},
+                                  {"label": "1999", "value":1999},
+                                  {"label": "2000", "value":2000},
+                                  {"label": "2001", "value":2001},
+                                  {"label": "2002", "value":2002},
+                                  {"label": "2003", "value":2003},
+                                  {"label": "2004", "value":2004},
+                                  {"label": "2005", "value":2005},
+                                  {"label": "2006", "value":2006},
+                                  {"label": "2007", "value":2007},
+                                  {"label": "2008", "value":2008},
+                                  {"label": "2009", "value":2009},
+                                  {"label": "2010", "value":2010},
+                                  {"label": "2011", "value":2011},
+                                  {"label": "2012", "value":2012},
+                                  {"label": "2013", "value":2013},
+                                  {"label": "2014", "value":2014},
+                                  {"label": "2015", "value":2015}],
                     "variable_name": 'year1', 
                     "action_id": "button" },
               {     "input_type":'dropdown',
@@ -230,7 +255,32 @@ class EconoApp(server.App):
                                   {"label": "1987", "value":1987},
                                   {"label": "1988", "value":1988},
                                   {"label": "1989", "value":1989},
-                                  {"label": "1990", "value":1990}],
+                                  {"label": "1990", "value":1990},
+                                  {"label": "1991", "value":1991},
+                                  {"label": "1992", "value":1992},
+                                  {"label": "1993", "value":1993},
+                                  {"label": "1994", "value":1994},
+                                  {"label": "1995", "value":1995},
+                                  {"label": "1996", "value":1996},
+                                  {"label": "1997", "value":1997},
+                                  {"label": "1998", "value":1998},
+                                  {"label": "1999", "value":1999},
+                                  {"label": "2000", "value":2000},
+                                  {"label": "2001", "value":2001},
+                                  {"label": "2002", "value":2002},
+                                  {"label": "2003", "value":2003},
+                                  {"label": "2004", "value":2004},
+                                  {"label": "2005", "value":2005},
+                                  {"label": "2006", "value":2006},
+                                  {"label": "2007", "value":2007},
+                                  {"label": "2008", "value":2008},
+                                  {"label": "2009", "value":2009},
+                                  {"label": "2010", "value":2010},
+                                  {"label": "2011", "value":2011},
+                                  {"label": "2012", "value":2012},
+                                  {"label": "2013", "value":2013},
+                                  {"label": "2014", "value":2014},
+                                  {"label": "2015", "value":2015}],
                     "variable_name": 'year2', 
                     "action_id": "button" },
               {     "input_type":'dropdown',
@@ -259,7 +309,7 @@ class EconoApp(server.App):
                     "label" : "Update",
                     "control_id" : "update_data"}]
 
-    tabs = ["Plot", "Table"]  # add tabs
+    tabs = ["Plot", "Table","Quick Stats"]  # add tabs
 
     outputs = [{    "output_type" : "plot",
                     "output_id" : "plot",
@@ -270,6 +320,11 @@ class EconoApp(server.App):
                     "output_id" : "table_id",
                     "control_id" : "update_data",
                     "tab" : "Table",
+                    "on_page_load" : True },
+				{   "output_type" : "plot",
+                    "output_id" : "plot",
+                    "control_id" : "update_data",
+                    "tab" : "Quick Stats",
                     "on_page_load" : True }]
 
 
@@ -327,7 +382,6 @@ class EconoApp(server.App):
 		fig = isa.time_series_plot(df, year1, year2, country, indc)
 		fig.set_title(indicator_dict[params['indicator']])
 		fig.set_ylabel(scale_dict[params['indicator']])
-		fig.set_xlabel('Years')
 		return fig
 
 app = EconoApp()

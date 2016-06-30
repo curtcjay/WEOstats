@@ -5,7 +5,7 @@ def indicators_preprocessing():
     This function is to preprocess 1980 - 2015 indicators dataset.
     Return: a merged dataset containing 1980-2015 indicators data.
     """
-    s_year = range(1980, 1991)
+    s_year = range(1980, 2016)
     #load indicators data into a dictionary
     dfs = {year:pd.read_csv("stats_"+str(year)+".csv",encoding = "ISO-8859-1") for year in s_year}
     
@@ -23,7 +23,7 @@ def indicators_preprocessing_by_year(indc='indc'):
     df = indicators_preprocessing()
     df.columns = df.columns.get_level_values(1)
     indicators_by_year = df[indc]
-    indicators_by_year.columns= range(1980,1991) #rename columns names with years
+    indicators_by_year.columns= range(1980,2016) #rename columns names with years
     return indicators_by_year
 
 
@@ -36,7 +36,7 @@ def indicators_preprocessing_for_table(indc='indc'):
     df = indicators_preprocessing()
     df.columns = df.columns.get_level_values(1)
     indicators_for_table = df[indc]
-    indicators_for_table.columns= range(1980,1991)
+    indicators_for_table.columns= range(1980,2016)
     indicators_for_table['Country'] = df.index
     cols = indicators_for_table.columns.tolist()
     cols = cols[-1:] + cols[:-1]
