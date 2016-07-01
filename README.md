@@ -1,6 +1,6 @@
 # WEOstats
 
-how to run:
+How to run:
 
 1: Download or clone this repository and extract the folder to your Desktop
 
