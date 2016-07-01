@@ -10,7 +10,7 @@ How to run:
 
 3: In the command line type: python Econapp.py : press Enter
 
-4: Open Google Chrome or your default Browser and type: localhost:9090 : press Enter
+4: Open Google Chrome or your default Browser and type: localhost:9990 : press Enter
 
 
 
