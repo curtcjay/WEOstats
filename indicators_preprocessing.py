@@ -1,4 +1,7 @@
 import pandas as pd
+import os
+
+filedir = os.path.dirname(os.path.realpath(__file__)) #get this file directory
 
 def indicators_preprocessing():
     """
@@ -7,7 +10,7 @@ def indicators_preprocessing():
     """
     s_year = range(1980, 2016)
     #load indicators data into a dictionary
-    dfs = {year:pd.read_csv("stats_"+str(year)+".csv",encoding = "ISO-8859-1") for year in s_year}
+    dfs = {year:pd.read_csv(filedir+"/data/stats_{}.csv".format(year),encoding = "ISO-8859-1") for year in s_year}
     
     for year in s_year:
         dfs[year] = dfs[year].set_index(['Country'])

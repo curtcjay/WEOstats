@@ -2,13 +2,15 @@
 
 how to run:
 
-1: Download or clone this repo and take note of where you extract the file
+1: Download or clone this repository and extract the folder to your Desktop
 
-2: In the command line you will have to change the directory to where you extracted the file
+2: Open the command line and type: cd Desktop/WEOstats-master : press Enter
 
-3: In the command line write: python Econapp.py and then press Enter
+3: In the command line type: pip install -r requirements.txt : press Enter
 
-4: Open Google Chrome or your default Browser and write: localhost:9090
+3: In the command line type: python Econapp.py : press Enter
+
+4: Open Google Chrome or your default Browser and type: localhost:9090 : press Enter
 
 
 
