@@ -18,57 +18,55 @@ df: a preprocessed dataframe with indicators data by year.
 """
 
 
-def growth_rate(df,year1,year2,indc,country):
+def growth_rate(df, year1, year2, indc, country):
     '''
     This function will return the growth rate for a given indicator given the beginnging year and end year
     Return:
     average: a dataframe containing the average of the specified indicator over the specified years
     '''
-    df = df.ix[:,year1:year2]
+    df = df.ix[:, year1:year2]
     growth_rate = df.pct_chage(axis=1)
-    growth_rate = pd.DataFrame(growth_rate) #convert the growth rate list to a dateframe
-    growth_rate.columns = ['Growth Rate of {} from {} to {}'.format(indc,year1,year2)]
+    growth_rate = pd.DataFrame(growth_rate)  # convert the growth rate list to a dateframe
+    growth_rate.columns = ['Growth Rate of {} from {} to {}'.format(indc, year1, year2)]
     growth_rate = growth_rate.loc[[country]]
     return growth_rate
 
-def average(df,year1,year2,indc,country):
+
+def average(df, year1, year2, indc, country):
     '''
     This function will return the average for a given indicator given the beginnging year and end year
     Return:
     average: a dataframe containing the average of the specified indicator over the specified years
     '''
-    df = df.ix[:,year1:year2]
-    average = df.mean(axis=1) 
-    average = pd.DataFrame(average) #convert the growth rate list to a dateframe
-    average.columns = ['Average of {} from {} to {}'.format(indc,year1,year2)]
+    df = df.ix[:, year1:year2]
+    average = df.mean(axis=1)
+    average = pd.DataFrame(average)  # convert the growth rate list to a dateframe
+    average.columns = ['Average of {} from {} to {}'.format(indc, year1, year2)]
     average = average.loc[[country]]
     return average
 
-	
-def std(df,year1,year2,indc,country):
+
+def std(df, year1, year2, indc, country):
     '''
     This function will return the growth rate for a given indicator given the beginnging year and end year	
     Return:
     std: a dataframe containing the standard deviation of the specified indicator over the specified years
     '''
-    df = df.ix[:,year1:year2]
-    std = df.std(axis=1) #list containing growth rates for every country in specified years
-    std = pd.DataFrame(std) #convert the growth rate list to a dateframe
-    std.columns = ['Standard Deviation of {} from {} to {}'.format(indc,year1,year2)]
+    df = df.ix[:, year1:year2]
+    std = df.std(axis=1)  # list containing growth rates for every country in specified years
+    std = pd.DataFrame(std)  # convert the growth rate list to a dateframe
+    std.columns = ['Standard Deviation of {} from {} to {}'.format(indc, year1, year2)]
     std = std.loc[[country]]
     return std
-		
-def time_series_plot(df, year1,year2,country,indc):
-	'''
-	This function will return the times series figure for the selected indicator for given years and country	
-	Return:
-	ax: the time series figure
-	'''
-	df = df.ix[:,year1:year2]
-	data = df.loc[country]
-	data = pd.DataFrame(data)
-	return data[country].plot(figsize=(10,6), legend=True)
-		
 
- 
 
+def time_series_plot(df, year1, year2, country, indc):
+    '''
+    This function will return the times series figure for the selected indicator for given years and country
+    Return:
+    ax: the time series figure
+    '''
+    df = df.ix[:, year1:year2]
+    data = df.loc[country]
+    data = pd.DataFrame(data)
+    return data[country].plot(figsize=(10, 6), legend=True)

@@ -34,7 +34,7 @@ def indicators_preprocessing_by_year(indc='indc'):
 
 def indicators_preprocessing_for_table(indc='indc'):
     """
-    This function is to prepocess indicator data by year
+    This Function is to prepocess indicator data by year
     Return:
     indicators_for_table: a dataframe containing every years indicators for each country from 1980 to 2015
     for the table tab
